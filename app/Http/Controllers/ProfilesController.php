@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -11,8 +12,10 @@ class ProfilesController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($user)
     {
-        return view('home');
+        $user = User::find($user);
+
+        return view('home', ['user' => $user]);
     }
 }
