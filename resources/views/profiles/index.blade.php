@@ -13,7 +13,7 @@
             </div>
             <div class="d-flex">
                 <div class="pr-5">
-                    <strong>153</strong> posts
+                    <strong>{{ $user->posts->count() }}</strong> posts
                 </div>
                 <div class="pr-5">
                     <strong>23k</strong> followers
