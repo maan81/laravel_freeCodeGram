@@ -35,5 +35,9 @@ class ProfilesController extends Controller
             'url' => 'url',
             'image' => '',
         ]);
+
+        $user->profile->update($data);
+
+        return redirect("/profile/{$user->id}");
     }
 }
