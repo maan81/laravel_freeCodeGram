@@ -41,7 +41,7 @@ class PostsController extends Controller
         // dd(request()->all());
     }
 
-    public function show($post)
+    public function show(\App\Post $post)
     {
         dd($post);
     }
