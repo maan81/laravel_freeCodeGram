@@ -12,14 +12,12 @@ class ProfilesController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($user)
+    public function index(User $user)
     {
         // $user = User::find($user);
-        $user = User::findOrFail($user);
+        // $user = User::findOrFail($user);
 
-        return view('profiles.index', [
-            'user' => $user
-        ]);
+        return view('profiles.index', compact('user'));
     }
 
     public function edit(User $user)
