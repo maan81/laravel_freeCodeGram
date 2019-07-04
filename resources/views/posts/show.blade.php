@@ -11,7 +11,7 @@
             <div>
                 <div class="d-flex align-items-center">
                     <div class="pr-3">
-                        <img src="/storage/{{ $post->user->profile->image }}" alt="" class="w-100 rounded-circle" style="max-width: 40px;">
+                        <img src="{{ $post->user->profile->profileimage() }}" alt="" class="w-100 rounded-circle" style="max-width: 40px;">
                     </div>
                     <div>
                         <div class="font-weight-bold">
