@@ -1731,7 +1731,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     followUser: function followUser() {
-      alert('inside followUser');
+      axios.post('/follow/1').then(function (response) {
+        alert(response.data);
+      });
     }
   }
 });
