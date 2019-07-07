@@ -7,10 +7,14 @@
 <script>
     export default {
 
-        props: ['userId'],
+        props: ['userId', 'follows'],
 
         mounted() {
             console.log('Component mounted.')
+        },
+
+        data: function() {
+            status : this.follows
         },
 
         methods: {
