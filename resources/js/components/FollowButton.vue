@@ -26,6 +26,11 @@
                         this.status = ! this.status;
 
                         console.log(response.data)
+                    })
+                    .catch(errors => {
+                        if(errors.response.status == 401) {
+                            window.location = '/login';
+                        }
                     });
             }
         },
