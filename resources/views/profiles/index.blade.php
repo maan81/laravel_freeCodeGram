@@ -27,7 +27,7 @@
                     <strong>{{ $user->posts->count() }}</strong> posts
                 </div>
                 <div class="pr-5">
-                    <strong>23k</strong> followers
+                    <strong>{{ $user->profile->followers->count() }}</strong> followers
                 </div>
                 <div class="pr-5">
                     <strong>212</strong> following
