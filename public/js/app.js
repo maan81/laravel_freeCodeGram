@@ -1731,7 +1731,9 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Component mounted.');
   },
   data: function data() {
-    status: this.follows;
+    return {
+      status: this.follows
+    };
   },
   methods: {
     followUser: function followUser() {

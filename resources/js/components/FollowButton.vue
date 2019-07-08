@@ -14,7 +14,9 @@
         },
 
         data: function() {
-            status : this.follows
+            return {
+                status : this.follows
+            }
         },
 
         methods: {
