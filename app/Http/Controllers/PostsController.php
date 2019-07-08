@@ -20,8 +20,6 @@ class PostsController extends Controller
         // $posts = Post::whereId('user_id', $users)->orderBy('created_at','DESC')->get();
         $posts = Post::whereId('user_id', $users)->latest()->get();
 
-        dd($posts);
-
         return view('posts.index', compact('posts'));
     }
 

@@ -4,28 +4,16 @@
 <div class="container">
     @foreach ($posts as $post)
         <div class="row">
-            <div class="col-8">
-                <img class="w-100" src="/storage/{{ $post->image }}" alt="{{ $post->caption }}">
+            <div class="col-6 offset-3">
+                <a href="/profile/{{ $post->user->id }}">
+                    <img class="w-100" src="/storage/{{ $post->image }}" alt="{{ $post->caption }}">
+                </a>
             </div>
+        </div>
 
-            <div class="col-4">
+        <div class="row pt-2 pb-4">
+            <div class="col-6 offset-3">
                 <div>
-                    <div class="d-flex align-items-center">
-                        <div class="pr-3">
-                            <img src="{{ $post->user->profile->profileimage() }}" alt="" class="w-100 rounded-circle" style="max-width: 40px;">
-                        </div>
-                        <div>
-                            <div class="font-weight-bold">
-                                <a href="/profile/{{ $post->user->id }}">
-                                    <span class="text-dark">{{ $post->user->username }}</span>
-                                </a>
-                                <a href="#" class="pl-3">Follow</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr>
-
                     <p>
                         <span class="font-weight-bold">
                             <a href="/profile/{{ $post->user->id }}">
