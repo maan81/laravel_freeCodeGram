@@ -15,10 +15,20 @@ class PostsController extends Controller
 
     public function index()
     {
-        $users = auth()->user()->following()->pluck('profiles.user_id');
+        if(auth()->user()){
+            $users = auth()->user()->following()->pluck('profiles.user_id');
+            // $posts = Post::whereId('user_id', $users)->orderBy('created_at','DESC')->get();
+            $posts = Post::whereId('user_id', $users)->with('user')->latest()->paginate(5);
+        }else{
+            $users = \App\User::all();
 
-        // $posts = Post::whereId('user_id', $users)->orderBy('created_at','DESC')->get();
-        $posts = Post::whereId('user_id', $users)->with('user')->latest()->paginate(5);
+            // dd($users);
+
+            foreach ($users as $user) {
+                $posts = Post::whereId('user_id', $user->id)->with('user')->latest()->paginate(5);
+            }
+        }
+
 
         return view('posts.index', compact('posts'));
     }
