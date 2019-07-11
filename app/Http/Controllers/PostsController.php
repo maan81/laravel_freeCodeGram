@@ -64,7 +64,7 @@ class PostsController extends Controller
         // dd(request()->all());
     }
 
-    public function show(\App\Post $post)
+    public function show(Post $post)
     {
         return view('posts.show', compact('post'));
     }
