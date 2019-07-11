@@ -22,11 +22,13 @@ class PostsController extends Controller
         }else{
             $users = \App\User::all();
 
-            // dd($users);
+            $user_ids = [];
 
             foreach ($users as $user) {
-                $posts = Post::whereId('user_id', $user->id)->with('user')->latest()->paginate(5);
+                $user_ids[] = $user->id;
             }
+
+            $posts = Post::whereIn('user_id', $user_ids)->with('user')->latest()->paginate(5);
         }
 
 
