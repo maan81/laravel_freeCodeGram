@@ -18,7 +18,7 @@ class PostsController extends Controller
         if(auth()->user()){
             $users = auth()->user()->following()->pluck('profiles.user_id');
             // $posts = Post::whereId('user_id', $users)->orderBy('created_at','DESC')->get();
-            $posts = Post::whereId('user_id', $users)->with('user')->latest()->paginate(5);
+            $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
         }else{
             $users = \App\User::all();
 
