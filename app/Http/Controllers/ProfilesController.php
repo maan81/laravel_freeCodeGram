@@ -19,6 +19,11 @@ class ProfilesController extends Controller
         // $user = User::find($user);
         // $user = User::findOrFail($user);
 
+        $cur_user_id = false;
+        if( !empty(auth()->user()->id) ){
+            $cur_user_id = auth()->user()->id;
+        }
+
         $follows = (auth()->user() ? auth()->user()->following->contains($user->id) : false );
 
         $postCount = Cache::remember(
@@ -45,7 +50,7 @@ class ProfilesController extends Controller
             }
         );
 
-        return view('profiles.index', compact('user', 'follows', 'postCount', 'followersCount', 'followingCount'));
+        return view('profiles.index', compact('user', 'follows', 'postCount', 'followersCount', 'followingCount', 'cur_user_id'));
     }
 
     public function edit(User $user)
