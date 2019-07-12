@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+
+    @if(!count($posts))
+        <div class="row">
+            No Following Posts
+        </div>
+    @endif
+
     @foreach ($posts as $post)
         <div class="row">
             <div class="col-6 offset-3">
